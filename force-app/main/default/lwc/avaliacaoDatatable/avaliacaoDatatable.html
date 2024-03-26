@@ -1,0 +1,15 @@
+<template>
+    <div>
+        <h2 class="slds-text-heading_medium slds-var-p-left_medium lds-var-m-bottom_medium">
+            Tabela
+        </h2>
+        <!-- connect callback - já chama o get -->
+        <c-custom-data-table
+                key-field="id"
+                data={dadoTabela}
+                columns={colunaTabela}
+                class="slds-m-vertical_medium"
+                >
+        </c-custom-data-table>
+    </div>
+</template>

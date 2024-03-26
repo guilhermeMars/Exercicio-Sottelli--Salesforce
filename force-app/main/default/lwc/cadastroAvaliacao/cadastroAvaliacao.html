@@ -1,0 +1,90 @@
+<!-- sldsValidatorIgnore -->
+<template>
+    <lightning-card>
+        <div class="slds-page-header" style="padding: 0 auto;">
+            <div class="slds-page-header__row">
+                <div class="slds-page-header__col-title">
+                    <div class="slds-media">
+                        <div class="slds-media__figure">
+                            <span class="slds-icon_container entitlement_policy" title="opportunity">
+                                <lightning-icon icon-name="standard:entitlement_policy" alternative-text="Event" title="Event"></lightning-icon>
+                                <span class="slds-assistive-text">Avaliação</span>
+                            </span>
+                        </div>
+                        <div class="slds-media__body">
+                            <div class="slds-page-header__name">
+                                <div class="slds-page-header__name-title">
+                                    <h1>
+                                        <span class="slds-page-header__title slds-truncate" title="Deixe sua avaliacao">Deixe sua avaliação!</span>
+                                    </h1>
+                                </div>
+                            </div>
+                            <p class="slds-page-header__name-meta">{nomeConta}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        
+        <div style="padding: 30px 30px 0 30px;">
+            <h2 class="slds-text-heading_medium slds-m-bottom_medium">
+                Avaliação
+            </h2>
+            <input type="text" id="text-input-id-47" value={nomeUser} disabled class="slds-input" />
+            <lightning-input name="titulo" onchange={handleTitulo} value={tituloAv} type="text"  label="Título" placeholder="Digite..." required></lightning-input>
+            <lightning-combobox name="nota" onchange={handleNota} value={notaAv} options={opcoesNota} placeholder="Escolha" label="Nota" required></lightning-combobox>
+            <lightning-input name="descricao" onchange={handleDescricao} value={descricaoAv} type="text" label="Descrição" placeholder="Digite..." required style="margin-bottom: 10px;"></lightning-input>
+            <lightning-button variant="brand" label="Salvar" title="Salvar" onclick={handleClick} class="slds-m-left_x-small"></lightning-button>
+        </div>
+
+        <div class="slds-m-horizontal_medium slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+            <lightning-layout>
+                <lightning-layout-item padding="around-small" alignment-bump="left" class="item">
+                    <h3>Nota máxima</h3>
+                    <span class={notaMaxima}></span>
+                </lightning-layout-item>
+                <lightning-layout-item padding="around-small" alignment-bump="right" class="item">
+                    <h3>Nota mínima</h3>
+                    <span class={notaMínima}></span>
+                </lightning-layout-item>
+            </lightning-layout>
+        </div>
+
+        <!-- COlocar datatable = usar @api, que atualiza o datatable (connect callback - variáveis de ciclo de vida, evento padrão, ocorre quando é carregado, uma única vez) // Redered callback - apenas quando aparece na tela  -->
+        <!-- Click - dispara um evento no botao que dispara um componente datatable. Datatable ter um método que atualiza -->
+        <c-avaliacao-datatable registroid={recordId}></c-avaliacao-datatable>
+
+        <div class="slds-m-around_medium">
+            <h3 class="slds-text-heading_medium slds-m-bottom_small">
+                Tipos de Nota
+            </h3>
+            <div class="slds-box slds-p-around_none slds-m-top_x-small slds-m-bottom_medium slds-m-horizontal_none">
+                <lightning-layout>
+                    <lightning-layout-item padding="around-small" class="item">
+                        <p>Nota 1</p>
+                        <span class="dot" style="background-color: #ff0000;"></span>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="item">
+                        <p>Nota 2</p>
+                        <span class="dot" style="background-color: #ff8310;"></span>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="item">
+                        <p>Nota 3</p>
+                        <span class="dot" style="background-color: #fff03f;"></span>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="item">
+                        <p>Nota 4</p>
+                        <span class="dot" style="background-color: #027e46;"></span>
+                    </lightning-layout-item>
+                    <lightning-layout-item padding="around-small" class="item">
+                        <p>Nota 5</p>
+                        <span class="dot" style="background-color: #2629e3;"></span>
+                    </lightning-layout-item>
+                </lightning-layout>
+            </div>
+        </div>
+
+        <c-avaliacao-medias registroid={recordId}></c-avaliacao-medias>
+    </lightning-card>
+</template>

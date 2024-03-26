@@ -1,0 +1,27 @@
+.dot{
+    height: 25px;
+    width: 25px;
+    border-radius: 50%;
+    display: inline-block;
+    border: 1px solid black;
+}
+
+.vermelho{
+    background-color: #ff0000;
+}
+
+.laranja{
+    background-color: #ff8310;
+}
+
+.amarelo{
+    background-color: #fff03f;
+}
+
+.verde{
+    background-color: #027e46;
+}
+
+.azul{
+    background-color: #2629e3;
+}
